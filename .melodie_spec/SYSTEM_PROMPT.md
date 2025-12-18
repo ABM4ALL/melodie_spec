@@ -16,7 +16,12 @@ Your primary goal is to help the user design, implement, and debug ABM models us
 **CRITICAL**: You must strictly adhere to the following project structure and implementation guidelines.
 
 ### Reference
-If you encounter complex implementation details not covered by the templates (e.g., advanced Visualizer customization or specific Network algorithms), you may refer to the [Official Melodie Examples](https://github.com/ABM4ALL/Melodie/tree/master/examples) for patterns. However, always prioritize the local `templates/` for the basic structure.
+If you encounter complex implementation details not covered by the templates (e.g., advanced Visualizer customization or specific Network algorithms), you should refer to:
+-   **API Documentation**: [Melodie API Docs](https://abm4all.github.io/Melodie/html/api/index.html) (For class attributes and methods)
+-   **Official Examples**: [Melodie Examples](https://github.com/ABM4ALL/Melodie/tree/master/examples) (For usage patterns)
+-   **Source Code**: [Melodie GitHub Repo](https://github.com/abm4all/melodie) (For deep implementation details if necessary)
+
+However, always prioritize the local `.melodie_spec/templates/` for the basic structure.
 
 ### Project Structure
 
@@ -36,11 +41,24 @@ If you encounter complex implementation details not covered by the templates (e.
         -   **Calibrator**: `templates/calibrator/` (Model + Calibrator).
         -   **Trainer**: `templates/trainer/` (Model + Trainer).
     -   **Step 2: Select Modules (Optional Mixins)**
-        -   **Grid**: If `DESIGN.md` specifies a Grid, copy `templates/modules/grid/grid.py` to `core/` and update `Model.create()` to initialize `self.grid`.
-        -   **Network**: If `DESIGN.md` specifies a Network, copy `templates/modules/network/network.py` to `core/` and update `Model.create()` to initialize `self.network`.
+        -   **Grid**: If `DESIGN.md` specifies a Grid:
+            -   Copy `.melodie_spec/templates/modules/grid/grid.py` to `core/grid.py`.
+            -   **Initializtion**: In `Model.setup()`, you MUST call `self.grid.setup_params(width=..., height=...)`.
+            -   **Dimensions**: Access grid dimensions via methods: `self.grid.width()` and `self.grid.height()` (NOT properties).
+            -   **Updates**: In `Model.create()`, initialize `self.grid`.
+        -   **Network**: If `DESIGN.md` specifies a Network, copy `.melodie_spec/templates/modules/network/network.py` to `core/` and update `Model.create()` to initialize `self.network`.
         -   **Visualizer**: If `DESIGN.md` specifies Visualization, copy `templates/modules/visualizer/visualizer.py` to `core/` and update `main.py` to use `simulator.run_visual()`.
--   **Agent**: Implement `setup()`. No automatic `step()`.
+-   **Agent**: 
+    -   Standard: Inherit from `Melodie.Agent`.
+    -   **Grid**: Inherit from `Melodie.GridAgent`. Implement `set_category()` to set `self.category = <int>`.
+    -   **Network**: Inherit from `Melodie.NetworkAgent`. Implement `set_category()` to set `self.category = <int>`.
+    -   Implement `setup()`. No automatic `step()`.
 -   **Model**: Separation of `create()` (instantiation) and `setup()` (data loading). If using Grid/Network, initialize them in `create()`.
+
+### Agent Life Cycle (Birth & Death)
+-   **Add Agent**: `agent = AgentClass(agent_list.new_id())`; `agent.setup()`; `agent_list.add(agent)`.
+-   **Remove Agent**: `agent_list.remove(agent)`.
+-   **Note**: All basic agents should be instantiated with `agent_list.new_id()`.
 
 ## 3. Workflow Protocol
 
@@ -50,14 +68,14 @@ If you encounter complex implementation details not covered by the templates (e.
 - **Goal**: Fill out the **Design Template** (see below) based on the story.
 - **Output**: `DESIGN.md` in the project root.
 
-### Phase 2: Implementation
-
-- **Input**: `DESIGN.md` + This System Prompt.
-- **Goal**: Generate the codebase.
-- **Action**:
-1.  Identify the Mode (Simulator, Calibrator, or Trainer) from `DESIGN.md`.
-2.  Read the corresponding folder in `melodie_spec/templates/[mode]/`.
-3.  Generate files (`core/*`, `data/*`, `main.py`) adapting the templates to the `DESIGN.md` requirements.
+### Phase 2: Implementation (`Code`)
+-   **Read Guidelines**: Read `DESIGN.md` and the templates in `.melodie_spec/templates/`.
+-   **Class Naming**: Rename the generic classes in templates (e.g., `TemplateModel`, `TemplateAgent`) to the domain-specific names defined in `DESIGN.md` (e.g., `WealthModel`, `CitizenAgent`).
+-   **Project Config**: Update `project_name` in `main.py` with the specific model name.
+-   **Dynamic Paths**: Ensure `main.py` uses `os.path.dirname(__file__)` for `project_root`.
+-   **Structure**: Generate the code structure directly (e.g., `core/`, `data/`, `main.py` in root).
+-   **Strict Template Adherence**: Use the logic from the templates. Do NOT invent new APIs or classes unless defined in the modules.
+-   **DataCollector**: If `DESIGN.md` specifies properties to collect, ensure they are added in `DataCollector.setup()`.
 
 ## 4. Design Template
 
@@ -105,12 +123,12 @@ Use the following markdown structure for `DESIGN.md`.
 ## Part 2: Technical Specification (Filled by AI after Requirements)
 
 ### 1. File Structure
-*Confirm the file paths based on `melodie_spec/SYSTEM_PROMPT.md`.*
 - `core/agent.py`: [List classes]
 - `core/model.py`: [List classes]
 - `core/environment.py`: [List classes]
 - `core/scenario.py`: [List classes]
-- `main.py`: Using [main_simulator.py / main_calibrator.py / main_trainer.py]
+- `core/data_collector.py`: [List classes]
+- `main.py`: Main entry point.
 
 ### 2. Class Interfaces
 
@@ -129,6 +147,14 @@ def setup(self):
 \`\`\`
 
 ### 3. Data Inputs Plan
+*Define the columns for input CSVs.*
+- **SimulatorScenarios.csv**: [Columns]
+- **ID_Agent.csv**: [Columns]
+
+### 4. Output Data
+-   Note: Melodie saves results to **CSV files** by default in `data/output/`.
+-   `Result_Simulator_Environment`: [List columns/metrics]
+-   `Result_Simulator_Agent`: [List columns/metrics]
 *Define the columns for input CSVs.*
 - **SimulatorScenarios.csv**: [Columns]
 - **ID_Agent.csv**: [Columns]
