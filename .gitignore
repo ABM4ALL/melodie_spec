@@ -5,24 +5,25 @@ __pycache__/
 .venv/
 .DS_Store
 
-# Generated Melodie Project Files
+# Force track the spec kit
+!/.melodie_spec/
+
+# Generated Melodie Project Files (Anchored to Root)
 # These are generated based on README.md (Story)
-DESIGN.md
-main.py
-core/
-data/
-config.py
+/DESIGN.md
+/main.py
+/core/
+/data/
+/config.py
+/visualizer.py
 
-# Visualizer if generated
-visualizer.py
-
-# Simulation Outputs
-*.sqlite
-*.csv
+# Simulation Outputs (Anchored to Root to avoid ignoring templates)
+/*.sqlite
+/*.csv
 
 # Temporary Inspection Scripts
-inspect_*.py
+/inspect_*.py
 
 # Environment Config
-.python-version
-.melodie
+/.python-version
+/.melodie
