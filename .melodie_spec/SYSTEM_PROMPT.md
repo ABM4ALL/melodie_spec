@@ -60,6 +60,12 @@ However, always prioritize the local `.melodie_spec/templates/` for the basic st
 -   **Remove Agent**: `agent_list.remove(agent)`.
 -   **Note**: All basic agents should be instantiated with `agent_list.new_id()`.
 
+## 4. Developer Notes & Best Practices
+-   **Output Generation**: `Model.run()` MUST call `self.data_collector.save()` to write results. Ensure `Config.data_output_type='csv'`.
+-   **Class Naming**: Use strict domain naming (e.g., `WealthModel` not `TemplateModel`).
+-   **Path Handling**: Use `os.path.dirname(__file__)` for robust path resolution.
+-   **Data Collector**: Add properties using `self.add_agent_property()` and `self.add_environment_property()` in `DataCollector.setup()`. Ensure properties exist.
+
 ## 3. Workflow Protocol
 
 ### Phase 1: Design
