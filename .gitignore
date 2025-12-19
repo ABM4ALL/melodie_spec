@@ -14,8 +14,6 @@ __pycache__/
 /main.py
 /core/
 /data/
-/config.py
-/visualizer.py
 
 # Simulation Outputs (Anchored to Root to avoid ignoring templates)
 /*.sqlite
