@@ -43,7 +43,7 @@ Follow these three steps to use `melodie_spec`:
 
 **Action**: Start a new chat session (recommended) and copy/paste this prompt (⚠️ **IMPORTANT**: Ensure you **drag & drop** or **reference** the mentioned files):
 
-> I have an approved design in @DESIGN.md. Please act as the Engineer. Read **@.melodie_spec/prompts/PHASE_2_CODE.md** and the templates in **@.melodie_spec/templates/**. Generate the full project code (core modules, main.py, data) based on the Design.
+> I have an approved design in @DESIGN.md. Please act as the Engineer. Read **@.melodie_spec/prompts/PHASE_2_CODE.md** and the templates in **@.melodie_spec/templates/**. Generate the full project code (core modules, main.py, data) based on the Design in the project root directory.
 
 **Verify**: Run the model and check results:
 
