@@ -31,7 +31,7 @@ Follow these three steps to use `melodie_spec`:
 
 **Goal**: Turn your "Story" into a technical "Design Document".
 
-**Action**: Open your AI Agent and copy/paste this prompt:
+**Action**: Open your AI Agent and copy/paste this prompt (⚠️ **IMPORTANT**: Ensure you **drag & drop** or **reference** the mentioned files so the AI can read them):
 
 > Please help me design a Melodie ABM based on my @STORY.md story. Read **@.melodie_spec/prompts/PHASE_1_DESIGN.md** instructions to create a `DESIGN.md` file in the project root directory.
 
@@ -41,7 +41,7 @@ Follow these three steps to use `melodie_spec`:
 
 **Goal**: Turn your "Design Document" into code.
 
-**Action**: Start a new chat session (recommended) and copy/paste this prompt:
+**Action**: Start a new chat session (recommended) and copy/paste this prompt (⚠️ **IMPORTANT**: Ensure you **drag & drop** or **reference** the mentioned files):
 
 > I have an approved design in @DESIGN.md. Please act as the Engineer. Read **@.melodie_spec/prompts/PHASE_2_CODE.md** and the templates in **@.melodie_spec/templates/**. Generate the full project code (core modules, main.py, data) based on the Design.
 
