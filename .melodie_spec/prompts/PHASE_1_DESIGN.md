@@ -40,6 +40,7 @@ Copy the following Markdown structure into `DESIGN.md`.
 - **Original Story**: [Summary of the user's STORY.md story]
 - **Goal**: [Specific simulation goal derived from story]
 - **Mode**: [Simulator / Calibrator / Trainer]
+- **Visualizer**: [Yes / No] (If Yes, see Visualizer section)
 
 ### 2. Agents
 - **Agent Class**: [Name, e.g., Citizen]
@@ -52,6 +53,12 @@ Copy the following Markdown structure into `DESIGN.md`.
 - **Grid Specs**: [Width, Height, Toroidal?] (If Grid)
 - **Network Specs**: [Type, Directed?] (If Network)
 - **Environment Logic**: [Global step behavior, e.g., "calculate Gini coefficient"]
+
+### 4. Optimization (Only for Calibrator/Trainer)
+*If Mode is Calibrator or Trainer, define the optimization goals.*
+- **Calibrator Target**: [e.g., infected_ratio = 0.8] (Calibration goal)
+- **Trainer Utility**: [e.g., maximize accumulated_payoff] (Agent learning goal)
+- **Parameters to Tune**: [List parameters, e.g., infection_prob]
 
 ### 4. Data
 - **Inputs**: [List of CSVs needed, e.g., SimulatorScenarios, ID_Agent]
@@ -72,7 +79,9 @@ Copy the following Markdown structure into `DESIGN.md`.
 - `core/environment.py`: [List classes]
 - `core/scenario.py`: [List classes]
 - `core/data_collector.py`: [List classes]
-- `main.py`: Main entry point.
+- `core/calibrator.py`: [List classes] (If Mode is Calibrator)
+- `core/trainer.py`: [List classes] (If Mode is Trainer)
+- `main.py` OR `run_studio.py` & `run_simulator.py`: Entry points.
 
 ### 2. Class Interfaces
 

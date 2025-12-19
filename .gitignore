@@ -10,11 +10,13 @@ __pycache__/
 
 # Generated Melodie Project Files (Anchored to Root)
 # These are generated based on STORY.md
-/STORY.md
-/DESIGN.md
-/main.py
-/core/
-/data/
+# /STORY.md
+# /DESIGN.md
+# /main.py
+# /run_studio.py
+# /run_simulator.py
+# /core/
+# /data/
 
 # Simulation Outputs (Anchored to Root to avoid ignoring templates)
 /*.sqlite
@@ -25,4 +27,4 @@ __pycache__/
 
 # Environment Config
 /.python-version
-/.melodie
+# /.melodie

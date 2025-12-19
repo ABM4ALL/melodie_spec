@@ -6,7 +6,6 @@ This kit helps AI Coding Agents (Cursor, Claude, etc.) generate high-quality Age
 
 - You can fork this repository to your GitHub account and set it as a **Template Repository**. 
 - Whenever you want to build a new ABM model, simply create a new repository using this template.
-- After creating a new repository for your model, remember to **update `.gitignore`** (un-comment `main.py`, `core/`, etc.) so that your generated code is tracked by Git!
 
 Follow these three steps to use `melodie_spec`:
 
@@ -14,18 +13,21 @@ Follow these three steps to use `melodie_spec`:
 
 1.  **Install Melodie**:
     ```bash
-    pip install Melodie
+    pip install Melodie MelodieStudio
     ```
 
 2.  **Prepare Story**: Create a `STORY.md` file in the root directory and write your model's motivation/story in it.
 
-    > **💡 Story Tips**:
-    > *   **Goal**: What problem is being solved?
-    > *   **Agents**: Who are the actors? (e.g., Wolves, Sheep)
-    > *   **Space**: Grid? Network? None?
-    > *   **Mode**: Need Calibration (fitting data) or Training (RL)?
+    > **Story Tips**:
+    > *   **Goal**: What system do you want to study? Any specific research question?
+    > *   **Agents**: Who are the actors (e.g., Wolves, Sheep)? What do they do? How do they interact?
+    > *   **Space**: Are there specific types of space (e.g., Grid, Network, None)?
+    > *   **Mode**: Need Calibration (fitting data) or Training (evolutionary reinforcement training)?
     
-    **Note**: The story doesn't need to be perfect. The AI will make reasonable assumptions to fill in the gaps in `DESIGN.md`, which you can then refine and edit.
+    **💡 Note**: 
+    
+    - The story doesn't need to be perfect. The AI will make reasonable assumptions to fill in the gaps in `DESIGN.md`, which you can then refine and edit.
+    - The core value of `melodie_spec` is teaching the AI Agent how to use Melodie. Therefore, if you also have a deeper understanding of the framework, you can collaborate much more effectively—especially when refining `DESIGN.md`. We strongly recommend you explore the Melodie [documentation](https://abm4all.github.io/Melodie/html/index.html) and [examples](https://github.com/ABM4ALL/Melodie/tree/master/examples) to learn the ropes!
 
 ## Step 1: Design Phase (The Architect)
 
@@ -59,8 +61,6 @@ The Melodie framework and this `melodie_spec` kit function as a set of **"struct
 
 **However, a critical reminder:**
 Once `melodie_spec` generates the first runnable version, the baton passes to you. You must carefully review, understand, and own every line of code and data detail. You must be able to verify and explain the model's results independently. As your project evolves into deeper modifications and complex iterations, the automated assistance from `melodie_spec` will naturally diminish, and your domain expertise must take over.
-
-> **💡 Pro Tip**: The core value of `melodie_spec` is teaching the AI Agent how to use Melodie. Therefore, if you also have a deeper understanding of the framework, you can collaborate much more effectively—especially when refining `DESIGN.md`. We strongly recommend you explore the Melodie [documentation](https://abm4all.github.io/Melodie/html/index.html) and [examples](https://github.com/ABM4ALL/Melodie/tree/master/examples) to learn the ropes!
 
 ## Contribution
 
