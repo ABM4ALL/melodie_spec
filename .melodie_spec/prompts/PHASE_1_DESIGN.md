@@ -14,12 +14,8 @@ Your goal is to translate a user's vague "Simulation Story" (typically found in 
 -   User's `STORY.md` (The Story).
 -   User's intent (Simulation Goal).
 
-
 ### Output
 -   `DESIGN.md`: A structured markdown file in the project root.
-
-
-
 
 ### Process
 1.  **Analyze**: Read the story. Identify Agents, Environment, Data specific needs, and Simulation Goal.

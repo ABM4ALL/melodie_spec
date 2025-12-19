@@ -60,6 +60,8 @@ The Melodie framework and this `melodie_spec` kit function as a set of **"struct
 **However, a critical reminder:**
 Once `melodie_spec` generates the first runnable version, the baton passes to you. You must carefully review, understand, and own every line of code and data detail. You must be able to verify and explain the model's results independently. As your project evolves into deeper modifications and complex iterations, the automated assistance from `melodie_spec` will naturally diminish, and your domain expertise must take over.
 
+> **💡 Pro Tip**: The core value of `melodie_spec` is teaching the AI Agent how to use Melodie. Therefore, if you also have a deeper understanding of the framework, you can collaborate much more effectively—especially when refining `DESIGN.md`. We strongly recommend you explore the **[Melodie Documentation and Examples](https://abm4all.github.io/Melodie/html/index.html)** to learn the ropes!
+
 ## Contribution
 
 The continuous improvement of `melodie_spec` relies on community feedback and iterative refinement of the prompts in `.melodie_spec`.
