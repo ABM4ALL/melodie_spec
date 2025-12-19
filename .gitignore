@@ -9,7 +9,8 @@ __pycache__/
 !/.melodie_spec/
 
 # Generated Melodie Project Files (Anchored to Root)
-# These are generated based on README.md (Story)
+# These are generated based on STORY.md
+/STORY.md
 /DESIGN.md
 /main.py
 /core/
