@@ -2,6 +2,14 @@
 
 This kit helps AI Coding Agents (Cursor, Claude, etc.) generate high-quality Agent-Based Models using the [Melodie](https://github.com/ABM4ALL/Melodie) framework.
 
+**Usage Recommendation**: 
+
+- You can fork this repository to your GitHub account and set it as a **Template Repository**. 
+- Whenever you want to build a new ABM model, simply create a new repository using this template.
+- After creating a new repository for your model, remember to **update `.gitignore`** (un-comment `main.py`, `core/`, etc.) so that your generated code is tracked by Git!
+
+Follow these three steps to use `melodie_spec`:
+
 ## Step 0: Prerequisites
 
 1.  **Install Melodie**:
@@ -42,3 +50,23 @@ This kit helps AI Coding Agents (Cursor, Claude, etc.) generate high-quality Age
 ```bash
 python main.py
 ```
+
+## Philosophy
+
+`melodie_spec` is designed to streamline the **bootstrap phase** of model development. Our goal is to save your mental energy for what truly matters: the **Story**. Thinking through motivations, defining model boundaries, and abstracting core logic—this is the heart of research.
+
+The Melodie framework and this `melodie_spec` kit function as a set of **"structural prompts."** Empowered by modern LLMs and AI IDEs, starting an ABM project has never been easier.
+
+**However, a critical reminder:**
+Once `melodie_spec` generates the first runnable version, the baton passes to you. You must carefully review, understand, and own every line of code and data detail. You must be able to verify and explain the model's results independently. As your project evolves into deeper modifications and complex iterations, the automated assistance from `melodie_spec` will naturally diminish, and your domain expertise must take over.
+
+## Contribution
+
+The continuous improvement of `melodie_spec` relies on community feedback and iterative refinement of the prompts in `.melodie_spec`.
+
+-   **Development**: We encourage you to fork this repository and build your models directly within it (e.g., using different branches for different models).
+-   **Refinement**: If you encounter issues with the generated Design or Code, please try to fix the root cause by modifying the prompts or templates in `.melodie_spec`.
+-   **Pull Requests**: Please merge your improvements into a dedicated branch and submit a **Pull Request** to the original [melodie_spec](https://github.com/ABM4ALL/melodie_spec) repository.
+-   **Issues**: Alternatively, share your experiences in the **Issues** section. Providing a link to your model's repository and describing specifically what went wrong (Design vs. Code) effectively helps us improve the kit.
+
+We look forward to your contributions!
