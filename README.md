@@ -11,7 +11,7 @@ Follow these three steps to use `melodie_spec`:
 
 ## Step 0: Prerequisites
 
-1.  **Install Melodie**:
+1.  **Setup the environment**: create a virtual environment for your project and install Melodie and MelodieStudio, so your AI Coding IDE can run the model and debug for you:
     ```bash
     pip install Melodie MelodieStudio
     ```
