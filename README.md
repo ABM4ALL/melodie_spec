@@ -1,5 +1,7 @@
 # How to Use Melodie Spec Kit
 
+> A kind reminder - you may want to consider using a more advanced AI tool for generating Melodie-based ABM: [melodie-skills](https://github.com/ABM4ALL/melodie-skills).
+
 This kit helps AI Coding Agents (Cursor, Claude, etc.) generate high-quality Agent-Based Models using the [Melodie](https://github.com/ABM4ALL/Melodie) framework.
 
 **Usage Recommendation**: 
